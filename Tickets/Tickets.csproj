@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Client.cs" />
     <Compile Include="Pendolino.cs" />
+    <Compile Include="Pkp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ticket.cs" />
     <Compile Include="TicketStand.cs" />

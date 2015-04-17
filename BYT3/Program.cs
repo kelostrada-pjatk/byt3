@@ -39,29 +39,69 @@ namespace BYT3
 
             wieza.RejestrujSamolot(samolotKela);
 
-            samolotKela.WyslijWiadomosc("Siema ziomy", 30);
+            samolotKela.WyslijWiadomosc("Siema ziomy", 40);
         }
 
         static void Tickets()
         {
             TicketStand pendolino = new Pendolino();
+            TicketStand pkp = new Pkp();
 
             var client = new Client(new DateTime(2000, 1, 1), 1000);
             
-            pendolino.BuyTicket(client, new Trip() {Distance = 1000});
-            pendolino.BuyTicket(client, new Trip() { Distance = 1000 });
-            pendolino.BuyTicket(client, new Trip() { Distance = 1000 });
-            pendolino.BuyTicket(client, new Trip() { Distance = 1000 });
-            pendolino.BuyTicket(client, new Trip() { Distance = 1000 });
-            pendolino.BuyTicket(client, new Trip() { Distance = 1000 });
-            pendolino.BuyTicket(client, new Trip() { Distance = 1000 });
+            pendolino.BuyTicket(client, new Trip {Distance = 1000});
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            Console.WriteLine("Client cash: {0:0.00}", client.Cash);
+
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            Console.WriteLine("Client cash: {0:0.00}", client.Cash);
+
+
+            var trip = new Trip {Distance = 1000};
+            pkp.BuyTicket(client, trip);
+            Console.WriteLine("Client cash: {0:0.00}", client.Cash);
+            pkp.BuyTicket(client, trip);
+            Console.WriteLine("Client cash: {0:0.00}", client.Cash);
+            pkp.BuyTicket(client, trip);
+            Console.WriteLine("Client cash: {0:0.00}", client.Cash);
+
+            var trip2 = new Trip { Distance = 500 };
+            pkp.BuyTicket(client, trip2);
+            Console.WriteLine("Client cash: {0:0.00}", client.Cash);
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            Console.WriteLine("Client cash: {0:0.00}", client.Cash);
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            Console.WriteLine("Client cash: {0:0.00}", client.Cash);
+            pendolino.BuyTicket(client, new Trip { Distance = 1000 });
+            Console.WriteLine("Client cash: {0:0.00}", client.Cash);
+            
         }
 
         static void Main(string[] args)
         {
-            //Calculator();
-            //Samolioty();
-            Tickets();
+            try
+            {
+                //Calculator();
+                //Samolioty();
+
+                Tickets();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("EXCEPTION! " + ex.Message);
+            }
         }
     }
 }

@@ -24,6 +24,7 @@ namespace Tickets
             GetClientTickets(client).Add(ticket);
         }
 
+        protected abstract string Name { get; }
         protected abstract int GetFreePlaceNumber(Trip trip);
         protected abstract decimal CalculateTicketPrice(Client client, Trip trip, int place);
         protected abstract void ProcessPayment(Client client, decimal amount);
@@ -43,7 +44,7 @@ namespace Tickets
 
             AddTicketToClient(client, ticket);
 
-            Console.WriteLine("Ticket price: {0:0.00}", price);
+            Console.WriteLine("{0} ticket bought, price: {1:0.00}", Name, price);
 
             return ticket;
         }

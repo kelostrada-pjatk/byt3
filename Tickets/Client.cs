@@ -15,7 +15,17 @@ namespace Tickets
         }
 
         public DateTime BirthDate { get; set; }
-        public decimal Cash { get; set; }
+        private decimal _cash;
+
+        public decimal Cash
+        {
+            get { return _cash; }
+            set
+            {
+                if (value < 0) throw new Exception("Cannot set negative balance");
+                _cash = value;
+            }
+        }
 
         public int Age
         {

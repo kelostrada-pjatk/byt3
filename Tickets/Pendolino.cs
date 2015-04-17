@@ -18,6 +18,11 @@ namespace Tickets
         }
 
 
+        protected override string Name
+        {
+            get { return "Pendolino"; }
+        }
+
         protected override int GetFreePlaceNumber(Trip trip)
         {
             return _random.Next(100);
@@ -31,7 +36,7 @@ namespace Tickets
 
             var price = (decimal)Math.Sqrt((double)trip.Distance);
 
-            price = MakeDiscount(price, GetClientTickets(client).Count);
+            price = MakeDiscount(price, GetClientTickets(client).Count) + 30;
 
             return price;
         }
